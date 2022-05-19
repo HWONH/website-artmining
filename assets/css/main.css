@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* 
+vw(viewport width) : 열려진 웹브라우저의 가로크기를 100vw
+vh(viewport height) : 열려진 웹브라우저의 세로크기를 100vh
+스크롤바의 크기를 포함하는 특징
+
+1) 13vw 은 몇 픽셀인지??
+=== 풀이순서 
+a) 1vw가 몇 px인지 구한다
+1920모니터에서 1vw는?
+1920(가로해상도) / 100 = 19.2px이 된다
+
+b) 13vw는 1vw가 13개 모인 것이다
+1vw크기 X 13하면 결과가 나온다
+
+1920  : 1920/100 * 13 = 249.6‬px
+1680  : 1680/100 * 13 = 218.4px
+1024  : 1024/100 * 13 = 133.12px
+
+2) 300px을 vw 단위로 환산?
+=== 풀이순서 
+a) 1픽셀이 몇 vw인지 계산한다
+1920모니터에서 1픽셀이 몇 vw인지?
+100(vw) / 1920(가로해상도) = 0.0520833333333333‬ vw
+
+b) 300픽셀은 1픽셀이 300개 모인 것이다
+1px크기 X 300하면 결과가 나온다
+
+1920 : 100 / 1920 * 300   = 15.625vw
+1680 : 100 / 1680 * 300   = 17.8571429vw
+1024 : 100 / 1024 * 300   = 29.296875‬vw
+*/
+
+#appDown{position: fixed;right: 190px;bottom: 30px;z-index: 800;}
+
+/* 1) main
+fixed 속성인 #header에 깔리지 않으려면 컨텐츠의 시작에 상단 여백을 추가함(header의 높이값 만큼) 
+40vw 값
+1920 : 1920/100*40=768px
+1440 : 1440/100*40=576px
+1024 : 1024/100*40=409.6px
+*/
+#mainSlider{position: relative;height: 40vw;min-width: 1080px;min-height: 432px;margin-top: 77px;}
+#mainSlider::before{content: "";display: block;width: 40%;height: 100%;background: #dadada;}
+
+/* ul.visual */
+#mainSlider .visual li{position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 600;}
+#mainSlider .visual li.on{z-index: 700;}
+/* 오렌지 가상요소는 처음 높이 0에서 li.on을 가지면 높이 100%로 늘어남 */
+#mainSlider .visual li::before{content: "";position: absolute;top: 0;left: 0;width: 40%;height: 0;background: #ffb400;}
+#mainSlider .visual li.on::before{height: 100%;}
+#mainSlider .visual li .rightbg{padding-left: 40%;opacity: 0;}
+#mainSlider .visual li.on .rightbg{opacity: 1;}
+#mainSlider .visual li .rightbg img{width: 100%;} /* html 문서 img 태그에 width와 height가 적혀진 경우 비율을 유지할 수 있도록 height: auto;도 추가함 */
+#mainSlider .visual li .txtbox{position: absolute;left: 25%;top: 10vw;opacity: 0;}
+#mainSlider .visual li.on .txtbox{opacity: 1;}
+#mainSlider .visual li .txtbox h4{font-size: 2.6vw;line-height: 2.7vw;font-family: AvantGarBol;}
+#mainSlider .visual li .txtbox p{font-size: 1.2vw;line-height: 1.7vw;margin-top: 1.4vw;}
+
+/* div.controlbox */
+#mainSlider .controlbox{bottom: 0;right: 0;width: 60%;height: 15.1%;background: #fff;font-size: 0.7vw;z-index: 750;}
+#mainSlider .controlbox .play_stop, #mainSlider .controlbox .paging{top: 25%;height: 50%;}
+#mainSlider .controlbox .play_stop{left: 60%;width: 5%;}
+#mainSlider .controlbox .play_stop button{width: 100%;height: 100%;background: #ffb400;border: 1px solid #fff;display: none;}
+#mainSlider .controlbox .play_stop button.on{display: block;} /* button.on은 스크립트에서 실행 */
+#mainSlider .controlbox .paging{left: 10%;width: 50%;}
+/* <br>이 있는 여러줄 텍스트를 수직 가운데 위치시키기
+1) 부모에게 display: table;
+2) 수직 가운데 위치해야할 나 자신에게 display: table-cell; vertical-align: middle; */
+#mainSlider .controlbox .paging li{float: left;width: calc(100% / 3);height: 100%;border: 1px solid #fff;box-sizing: border-box;display: table;}
+#mainSlider .controlbox .paging li a{display: table-cell;vertical-align: middle;text-align: center;background: #dadada;}
+#mainSlider .controlbox .paging li.on a{background: #ffb400;}
+
+/* #mainSlider transition */
+#mainSlider .visual li::before, #mainSlider .visual li .rightbg, #mainSlider .visual li .txtbox{transition: all 0.4s;}
+
+/* 5개의 article의 공통 스타일(#main제외) */
+.sub_tit{font-size: 40px;line-height: 58px;text-align: center;}
+.fade{position: relative;} /* 내부의 img를 absolute */
+/* transform이 완료된 후의 위치를 기준으로해서
+translateX() : 왼쪽- / 오른쪽+
+translateY() : 위쪽- / 아래쪽+ */
+
+/* 기본 단계 */
+.fade .txt_down, .fade .img_up{opacity: 0;transition: all 0.5s;}
+.fade .txt_down{transform: translateY(-70px);}
+.fade .img_up{transform: translateY(70px);position: absolute;}
+/* 활성화 단계 */
+.fade.on .txt_down, .fade.on .img_up{opacity: 1;transform: translateY(0);}
+
+/* .txt_down */
+.fade .txt_down h4{font-family: AvantGarBol;font-size: 60px;line-height: 58px;padding-bottom: 20px;font-weight: 400;}
+.fade .txt_down strong{display: block;font-size: 30px;line-height: 40px;font-weight: 500;}
+.fade .txt_down p{position: relative;padding-top: 81px;line-height: 30px;}
+.fade .txt_down p::before{content: "";position: absolute;top: 55px;left: 0;width: 33px;height: 1px;background: #242424;}
+.fade .txt_down.txt_r p::before{left: auto;right: 0;} /* left와 right가 동시에 존재하면 left의 우선순위가 높다. top과 bottom이 동시에 존재하면 top의 우선순위가 높다 */
+.btm{background: #f0f0f0;}
+
+/* 2) business */
+#business .area .sub_tit{padding-top: 180px;}
+#business .area .fade{margin-top: 100px;height: 508px;}
+#business .area .fade .txt_down{padding-top: 90px;}
+#business .area .fade .img_up{top: 0;right: 0;}
+#business .btm{padding-top: 340px;}
+#business .btm .area{height: 700px;}
+#business .btm .area .txt_down{padding-top: 45px;}
+#business .btm .area .img_up{top: 0;left: 50px;}
+
+/* 3) promotion1 */
+#promotion1{margin-top: 160px;padding-top: 71px;height: 579px;background: url("../images/main/main-promotion-bg.jpg") no-repeat fixed right 10px top;} /* 배경이미지를 오른쪽 상단으로 정렬시키고 오른쪽에서 10px만큼을 띄워준다, fixed의 기준점은 웹브라우저 */
+#promotion1 .area .txt_down{padding: 50px 0 0 50px;width: 519px;height: 508px;box-sizing: border-box;background: #ffffff;}
+
+/* 4) copyright */
+#copyright{height: 990px;}
+#copyright .area .txt_down{padding-top: 270px;}
+#copyright .area img{position: absolute;top: 0;left: -50px;z-index: -1;}
+
+/* 5) promotion2 */
+
+
+/* 6) mainIssue */

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title> 아트마이닝 </title>
+    <!-- 파비콘 추가 : 타이틀바의 왼쪽 작은 아이콘, .ico 형식의 파일로 생성 -->
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- 아이콘폰트 생성 -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <!-- skip navigation : 반복영역 건너뛰기 -->
+    <div id="skip">
+        <a href="#content">본문 바로가기</a>
+    </div>
+
+    <!-- fixed 로 고정 -->
+    <header id="header">
+        <h1 class="logo f_l">
+            <a href="">
+                <img src="assets/images/common/logo.png" alt="아트마이닝">
+            </a>
+        </h1>
+        <div class="util f_r">
+            <ul class="sns">
+                <li>
+                    <a href="">
+                        <i class="fab fa-instagram"></i><span class="blind2">인스타그램</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fab fa-facebook-f"></i><span class="blind2">페이스북</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fab fa-youtube"></i><span class="blind2">유튜브</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="lang p_r">
+                <!-- .active가 추가되면 열린다 -->
+                <ul>
+                    <li><a href="">KR</a></li>
+                    <li><a href="">EN</a></li>
+                </ul>
+                <svg class="arrow p_a"> <!-- 9 * 5 크기, absolute -->
+                    <path d="M 0 0 L 9 0 L 4.5 5 Z" />
+                </svg>
+            </div>
+        </div>
+        <nav id="gnb">
+            <h2 class="blind">주메뉴</h2>
+            <ul>
+                <li>
+                    <a href="">ABOUT US</a>
+                </li>
+                <li>
+                    <a href="">ISSUE</a>
+                </li>
+                <li>
+                    <a href="">MAGAZINE</a>
+                </li>
+                <li>
+                    <a href="">ARTIST MEMBERSHIP</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="content">
+        <h2 class="blind">아트마이닝 소개</h2>
+        <a href="" id="appDown"><img src="assets/images/common/btn_appdownload.png" alt="앱 다운로드"></a>
+
+        <article id="main">
+            <h3 class="blind">안내사항</h3>
+            <div id="mainSlider">
+                <!-- 
+                    슬라이더 상세내용 ul.visual
+                    컨트롤박스 : 자동실행과 일시정지 div.play_stop
+                                 인디케이터 ul.paging
+                 -->
+                <ul class="visual">
+                    <li>
+                        <!-- 오렌지 가상요소 -->
+                        <div class="rightbg"><img src="assets/images/main/main-visual-bg-1.jpg" alt=""></div>
+                        <!-- 배경이미지 대신 img를 사용하는 이유는 브라우저의 가로 크기에 맞추어 세로 높이값도 자동으로 조절될수 있도록, 부모보다 커지지 않도록 스타일에서 제어(width: 100%)  -->
+                        <div class="txtbox">
+                            <h4>ARTMINING <br>MILANO-PARIS</h4>
+                            <p>ARTMINING <br>GLOBAL PROMOTION 2019</p>
+                            <p>Korean inspiration : Unexpected Touches</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rightbg"><img src="assets/images/main/main-visual-bg-2.jpg" alt=""></div>
+                        <div class="txtbox">
+                            <h4>PURCHASE OF ARTWORK</h4>
+                            <p>아트마이닝 앱에 등록된 모든 작품은 <br>
+                                아트마이닝을 통해 구매 가능합니다.</p>
+                            <p>CONTACT TO</p>
+                            <p>E-mail : art-mining@art-mining.com</p>
+                            <p>Tel : (00 82) 02-3775-3388</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rightbg"><img src="assets/images/main/main-visual-bg-3.jpg" alt=""></div>
+                        <div class="txtbox">
+                            <h4>AUTHORIZATION <br>OF COPYRIGHT</h4>
+                            <p>아트마이닝 앱에 등록된 모든 작품은 <br>
+                                아트마이닝을 통한 저작권 이용 허가 절차를 <br>
+                                통해 복제 활용이 가능합니다.</p>
+                            <p>CONTACT TO</p>
+                            <p>E-mail : art-mining@art-mining.com</p>
+                            <p>Tel : (00 82) 02-3775-3388</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="controlbox p_a">
+                    <div class="play_stop p_a">
+                        <button type="button" class="play" aria-label="애니메이션 자동 실행">play</button>
+                        <button type="button" class="stop" aria-label="일시 정지">stop</button>
+                    </div>
+                    <ul class="paging p_a">
+                        <li>
+                            <a href="" role="button">ARTMINING <br>MILANO-PARIS</a>
+                        </li>
+                        <li>
+                            <a href="" role="button">PURCHASE OF ARTWORK</a>
+                        </li>
+                        <li>
+                            <a href="" role="button">AUTHORIZATION <br>OF COPYRIGHT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article id="business">
+            <div class="area"> <!-- 가로980, 수평padding50, 문서 가운데 위치 -->
+                <h3 class="sub_tit">OUR BUSINESS</h3>
+                <div class="fade">
+                    <div class="txt_down">
+                        <h4>ARTFOLIO</h4>
+                        <strong>아티스트를 위한 <br>전문 포트폴리오 서비스</strong>
+                        <p>아티스트의 프로필에서부터 작품 정보와 이미지, 영상을 <br>
+                            자유롭게 업로드하여 포트폴리오를 다채롭게 만들고, <br>
+                            셀프 프로모션의 Tool로 활용할 수 있습니다.</p>
+                    </div>
+                    <img src="assets/images/main/main-biz-phone.png" alt="" class="img_up">
+                </div>
+            </div>
+            <div class="btm"> <!-- 100%너비, 회색배경색 -->
+                <div class="area fade">
+                    <div class="txt_down txt_r">
+                        <h4>MAGAZINE <br>ARTMINE</h4>
+                        <strong>아티스트 중심의 <br>온라인 미디어 매거진</strong>
+                        <p>ARTMINE은 아티스트의, 아티스트에 의한, <br>
+                            아티스트를 위한 콘텐츠 프로모션 플랫폼이자 <br>
+                            온라인 미디어 매거진입니다. <br>
+                            에디터와 아티스트가 함께 어우러져 만들어가는 <br>
+                            새로운 감각과 시선으로 콘텐츠를 전달합니다</p>
+                    </div>
+                    <img src="assets/images/main/main-biz-photo-0.png" alt="" class="img_up">
+                </div>
+            </div>
+        </article>
+
+        <article id="promotion1"> <!-- 100%너비, 배경 fixed -->
+            <div class="area fade">
+                <div class="txt_down">
+                    <h4>ON/OFFLINE <br>PROMOTION</h4>
+                    <strong>우리 아티스트와 함께 <br>글로벌 미술시장으로 진출</strong>
+                    <p>우리의 아티스트가 주목 받을 수 있는 바로 ‘그 곳’을 MINING 하고, <br>
+                        함께 성공의 스토리를 써 나갈 수 있는 기회를 찾고 있습니다. <br>
+                        국내외 중요한 아트 관련 행사와 프로모션 진행은 물론, <br>
+                        아트마이닝만의 자체 프로모션 전시도 준비하고 있습니다.</p>
+                </div>
+            </div>
+        </article>
+
+        <article id="copyright">
+            <div class="area fade">
+                <div class="txt_down txt_r">
+                    <h4>COPYRIGHT <br>MANAGEMENT</h4>
+                    <strong>전문적이고 체계적인 <br>저작권 관리와 보호 시스템</strong>
+                    <p>아티스트의 창작 활동이 정당한 보상을 받을 수 있도록 <br>
+                        지원하고, 아티스트의 잠재적인 비전을 응원합니다. <br>
+                        저작권 이용 허락에서부터 고해상 이미지 아카이브까지 <br>
+                        원클릭 서비스를 제공합니다.</p>
+                </div>
+                <img src="assets/images/main/main-copy-stamp.png" alt="">
+            </div>
+        </article>
+
+        <article id="promotion2" class="btm"> <!-- 100%너비, 회색배경색 -->
+            <div class="area">
+                <h4><span>ONLINE</span>
+                    ART PROMOTION <br>PLATFORM</h4>
+                <p>artmining(아트마이닝) APP은 순수미술, 공예, 디자인 등 장르의 경계를 넘어 <br>
+                    재능과 잠재력을 가진 우리 아티스트를 발굴하고 글로벌 시장으로 소개하여 <br>
+                    성공하도록 돕는 온라인 아트 프로모션 플랫폼입니다.</p>
+                <a href="" class="app_ani">앱 기능설명서 다운받기</a>
+                <div class="store">
+                    <ul>
+                        <li><a href="">Google play</a></li>
+                        <li><a href="">App Store</a></li>
+                    </ul>
+                    <!-- qr코드 접근성 : 이동주소의 정보를 대체텍스트로 반드시 제공해야 함 -->
+                    <div class="qrcode">
+                        <img src="assets/images/common/qr-code.png" alt="아트마이닝 큐알코드 - http://api.art-mining.com/app 로 이동">
+                        <p>우측의 QR CODE를 인식하여 스토어로 이동해보세요.</p>
+                    </div>
+                </div>
+                <img src="assets/images/main/main-promo-phone.png" alt="">
+            </div>
+        </article>
+
+        <article id="mainIssue">
+            <div class="area">
+                <h3 class="sub_tit">ISSUE</h3>
+                <ul class="issue">
+                    <li>
+                        <a href="">
+                            <!-- div로 img를 감싼 이유 : 마우스 오버시에 커지는 사진을 overflow: hidden;, div에 검정배경색 => img는 투명도 제어 -->
+                            <div class="img"><img src="notice_board/190220013636.jpg" alt=""></div>
+                            <div class="txt">
+                                <p>ARTMINING MILANO-PARIS</p>
+                                <p>2019/10/20</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img"><img src="notice_board/181121011618.jpg" alt=""></div>
+                            <div class="txt">
+                                <p>ARTMINING MILANO-PARIS</p>
+                                <p>2019/10/20</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img"><img src="notice_board/181106004946.jpg" alt=""></div>
+                            <div class="txt">
+                                <p>ARTMINING MILANO-PARIS</p>
+                                <p>2019/10/20</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img"><img src="notice_board/181030051917.jpg" alt=""></div>
+                            <div class="txt">
+                                <p>ARTMINING MILANO-PARIS</p>
+                                <p>2019/10/20</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+
+        <button class="btn_top" type="button"><img src="assets/images/common/btn_top.png" alt="top이동"></button>
+    </section>
+
+    <footer id="footer"> <!-- 100%너비, 상단 보더 라인 -->
+        <div class="area">
+            <div class="top">
+                <a href="">이용약관 및 개인정보 취급방침</a>
+                <p>&copy; 2018. ARTMINING CO., LTD. ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="btm">
+                <ul class="sns">
+                    <li>
+                        <a href=""><span class="blind">블로그</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span class="blind">인스타그램</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span class="blind">페이스북</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span class="blind">유튜브</span></a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="" class="bd_rd">Company profile</a>
+                    <div class="family">
+                        <a href="" role="button">
+                            <span>Family site</span>
+                            <span class="icon"></span> <!-- :before, :after 가상요소 생성 -->
+                        </a>
+                        <ul>
+                            <!-- 새창열기 target="_blank"
+                            target="_blank"라고 작성하면 title을 추가하지 않아도 새창열기로 스크린리더에서 읽어준다
+                            title은 어떤 태그이던 사용가능함, 기존의 텍스트로는 의미가 충분하지 않아서 추가설명(부가설명)을 하고 싶을 때
+                            원래 텍스트와 title의 동일하면 중복으로 접근성 위배 -->
+                            <li><a href="https://www.konai.com" target="_blank" title="새창">KONA I</a></li>
+                            <li><a href="https://kona-m.co.kr" target="_blank" title="새창">KONA M</a></li>
+                            <li><a href="http://www.konacard.co.kr" target="_blank" title="새창">KONA CARD</a></li>
+                            <li><a href="https://www.veaver.com" target="_blank" title="새창">Veaver Inc.</a></li>
+                        </ul>
+                        <a href="">이동</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
